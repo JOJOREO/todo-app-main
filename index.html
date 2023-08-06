@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Josefin+Sans:wght@400;700&family=Manrope:wght@800&family=Montserrat:wght@300;400;500;600&family=Overpass&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <!-- google fonts -->
+  <link rel="stylesheet" href="/styles/styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Todo app</title>
+
+
+</head>
+
+<body>
+
+  <main>
+    <img id="bg-desktop-img" src="/images/bg-desktop-dark.jpg" class="light" alt="bg-desktop-dark">
+
+    <section id="top-section">
+      <h1 id="to-do-header">TODO</h1>
+      <button>
+        <div id="mode-change-button"><img id="mode" src="./images/icon-sun.svg"></div>
+      </button>
+    </section>
+
+    <section id="add-new-task">
+      <div class="task">
+        <input type="checkbox" name="create_new_task_checkbox" id="create_new_task_checkbox" />
+        <label for="create_new_task_checkbox"></label>
+        <input id="add-new-task-text" type="text" placeholder="Create a new todo...">
+      </div>
+    </section>
+
+    <section id="all-tasks">
+      <!-- <div class="task">
+        <input type="checkbox" id="checkbox1">
+        <label for="checkbox1"></label>
+        <p>aaaaaaaaa</p>
+        <button class="x_button"><img src="./images/icon-cross.svg"></button>
+      </div>
+      <div class="task">
+        <input type="checkbox" id="checkbox2">
+        <label for="checkbox2"></label>
+        <p>aaaaaaaaa</p>
+        <button class="x_button"><img src="./images/icon-cross.svg"></button>
+      </div>
+      <div class="task">
+        <input type="checkbox" id="checkbox3">
+        <label for="checkbox3"></label>
+        <p>aaaaaaaaa</p>
+        <button class="x_button"><img src="./images/icon-cross.svg"></button>
+      </div>
+      <div class="task">
+        <input type="checkbox" id="checkbox4">
+        <label for="checkbox4"></label>
+        <p>aaaaaaaaa</p>
+        <button class="x_button"><img src="./images/icon-cross.svg"></button>
+      </div>
+      <div class="task">
+        <input type="checkbox" id="checkbox5">
+        <label for="checkbox5"></label>
+        <p>aaaaaaaaa</p>
+        <button class="x_button"><img src="./images/icon-cross.svg"></button>
+      </div>
+      <div class="task special">
+        <P> # items left</P>
+        <div id="middle_button">
+          <button>All</button>
+          <button>active</button>
+          <button> completed</button>
+        </div>
+        <button id="clear">clear completed</button> 
+      </div>-->
+    </section>
+  </main>
+  <!-- Todo -->
+
+  <!-- Add dynamic number +  items left -->
+
+  <!-- 
+  All
+  Active 
+  Completed
+
+  Clear Completed
+
+  Drag and drop to reorder list -->
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script src="index.js"></script>
+</body>
+
+</html>

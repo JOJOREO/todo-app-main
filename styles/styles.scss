@@ -1,0 +1,419 @@
+@mixin flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+$c1:hsl(192deg, 100%, 67%);
+$c2:hsl(280deg, 87%, 65%);
+$list1: $c1, $c2;
+@mixin gradient($direction, $list) {
+    background: -webkit-linear-gradient($direction, $list);
+    background: -moz-linear-gradient($direction, $list);
+    background: -o-linear-gradient($direction, $list);
+    background: linear-gradient($direction, $list);
+}
+
+
+
+// ### Primary 
+$Bright-Blue: hsl(220, 98%, 61%); //active/ ckicled
+$Check-Background: linear-gradient(to right,hsl(192deg, 100%, 67%),hsl(280deg, 87%, 65%));
+// ### Light Theme 
+$Very-Light-Gray: hsl(0, 0%, 98%) ;
+$Very-Light-Grayish-Blue: hsl(236, 33%, 92%) ;
+$Light-Grayish-Blue: hsl(233, 11%, 84%); //hovered
+$Dark-Grayish-Blue: hsl(236, 9%, 61%) ;//normal gret text
+$Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+// ### Dark Theme 
+$Very-Dark-Blue: hsl(235, 21%, 11%); //background
+$Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%); //tasks
+$Light-Grayish-Blue: hsl(234, 39%, 85%); 
+$Light-Grayish-Blue-hover: hsl(236, 33%, 92%) ;
+$Dark-Grayish-Blue: hsl(234, 11%, 52%) ;
+$Very-Dark-Grayish-Blue: hsl(233, 14%, 35%) ;
+$Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);//task borders, checkboxes
+
+// ### Font 
+$font-Family: "Josefin Sans";
+// (https: //fonts.google.com/specimen/Josefin+Sans)
+$font-Weights: 400, 700;
+$font-size: 18px;
+
+
+body{
+    // @include flex-container();
+    box-sizing: border-box;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    // border: 1px solid red;
+    background-color: $Very-Dark-Blue;
+    overflow-y: hidden;
+
+// @include gradient(right, $list1);
+    font-Family:$font-Family;
+    font-size: 18px
+}
+main
+{
+    @include flex-container();
+    
+    // border: 2px solid green;
+}
+#bg-desktop-img
+{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+#to-do-header
+{
+   
+    color: white;
+    font-size: 40px;
+    letter-spacing: 25px;
+    max-height: 2vh;
+}
+#top-section
+{
+        display: flex;
+        // flex-direction: row;
+        justify-content: space-between;
+        width: max-content;
+        // border: 1px solid yellow;
+        min-width: 40vw;
+        width: 40vw;
+        // min-height: min-content;
+        z-index: 2;
+        position: relative;
+        bottom: 250px;
+        align-items: baseline;
+        // align-items: Center;
+
+}
+//need to specify for change mode button 
+button
+{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: none;
+    
+}
+
+#add-new-task{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // border: 2px solid orange;
+    min-width: 40vw;
+        // min-height: min-content;
+        z-index: 2;
+        position: relative;
+        bottom: 220px;
+        align-items: center;
+}
+
+// Start of checkbox with specific colour style
+.task {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    // padding-left: 5%; 
+    // padding-left: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    // vertical-align: baseline;
+    align-items:center;
+    justify-content:baseline;
+    text-align: center;
+    background-color: $Very-Dark-Desaturated-Blue;
+    // width: 100%;
+    width: 40vw;
+    min-width: auto;
+    // 
+    justify-content: flex-start;
+    // border: 1px solid $Dark-Grayish-Blue;
+    border: 1px solid $Very-Dark-Grayish-Blue;
+    border-radius: 5px;
+}
+.task label {
+    // background-color: #fff;
+    // border: 1px solid $Dark-Grayish-Blue;
+    border: 1px solid $Very-Dark-Grayish-Blue;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    left: 10px;
+    position: absolute;
+    top: 0;
+    width: 28px;
+    /*  */
+    // padding-left: 5%;
+    margin: 10;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    overflow: hidden;
+
+    // 
+    
+}
+
+.task label:hover
+{
+    border:1px solid $Light-Grayish-Blue;
+}
+
+.task label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 7px;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 12px;
+    // 
+    
+    // 
+}
+
+.task input[type=checkbox] {
+    visibility: hidden;
+    position: absolute;
+    // margin-left: 10px;
+    // margin-right: 10px;
+}
+
+// .task label::after:hover {
+//     // border: 1px solid linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+//     border: 5px solid red;
+//     // visibility: hidden;
+//     // position: absolute;
+//     // margin-left: 10px;
+//     // margin-right: 10px;
+// }
+
+.task input[type=checkbox]:checked+label {
+    background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border: none;
+}
+
+.task input[type=checkbox]:checked+label:after {
+    opacity: 1;
+}
+
+.task input[type=text] {
+    background: transparent;
+    border: none;
+    font-family: "Josefin Sans";
+    font-size: 18px;
+    color: white;
+    margin-left: 20px;
+    width:90%;
+    text-transform: capitalize;
+    
+}
+
+.task input[type=text]::placeholder {
+    // color: #fff;
+    // color: $Light-Grayish-Blue;
+    color: $Dark-Grayish-Blue;
+    margin-left: 10%;
+}
+
+.task input[type=text]:focus {
+    outline: none;
+    // display: none;
+}
+
+.task button{
+    position: absolute;
+    right: 0px;
+}
+
+
+
+// all tasks
+
+#all-tasks{
+    // min-width: 40vw;
+    // display: flex;
+        // flex-direction: row;
+        // justify-content: space-between;
+        // border: 2px solid orange;
+        width: 40vw;
+        min-width: 40vw;
+        // min-height: min-content;
+        z-index: 2;
+        position: relative;
+        bottom: 200px;
+        align-items: center;
+        // display: flex;
+        // flex-direction: column;
+        // border-radius: 15px;
+}
+#all-tasks .task
+{
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+#all-tasks .task:last-child
+{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+}
+#all-tasks .task:first-child
+{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.task p {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    font-family: "Josefin Sans";
+    font-size: 18px;
+    // color: white;
+        // color: $Light-Grayish-Blue;
+        color: $Dark-Grayish-Blue;
+    margin-left: 20px;
+    margin-right: 20px;
+    // width: 80%;
+    text-transform: capitalize;
+    height: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+}
+.task p:hover{
+    color: $Light-Grayish-Blue;
+}
+
+.special {
+    display: flex;
+    flex-direction: row;
+    // align-items: flex-start;
+    vertical-align: bottom;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.special p {
+    display: inline;
+    font-size: 18px;
+    margin: 0;
+    
+}
+.special button {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: inline;
+    // display: flex;
+    font-size: 18px;
+    font-family: $font-Family;
+    font-weight: $font-Weights;
+    color: $Dark-Grayish-Blue;//inactive
+}
+// .special button:hover {
+
+//     color: $Light-Grayish-Blue;
+// }
+.special button:last-child
+{
+    margin-left: 5px;
+        margin-right: 5px;
+        width: 25%;
+}
+
+.special button:hover {
+
+    color: $Light-Grayish-Blue;//active
+}
+.special button:active {
+
+    color: $Bright-Blue;//hovered
+}
+
+.x_button{
+    display: none;
+}
+/*# sourceMappingURL=styles.css.map */
+@media screen and (max-width: 600px) {
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column  ;
+    }
+    .task
+    {
+        width: 90vw;
+        font-size: small;
+    }
+    #all-tasks
+    {
+        width: 90vw;
+    }
+
+        #bg-desktop-img {
+            width: 100%;
+            // height: 100%;
+            // margin-top: 100px;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            height: 35%;
+        }
+
+    #top-section {
+        margin: auto;
+        margin-top: 100%;
+        width: 90%;
+    }
+    .special #middle_button{
+        font-size: 10px;
+        display: none;
+    }
+    .special p{
+        font-size: 10px;
+    }
+    .special button{
+        font-size: 10px;
+        
+    }
+
+
+
+    // .special {
+    //     display: flex;
+    //     flex-direction: row;
+    //     // align-items: flex-start;
+    //     vertical-align: bottom;
+    //     justify-content: space-around;
+    //     margin-top: 20px;
+    //     padding: 0;
+    // }
+
+    // #all-tasks .task:last-child {
+    //     border-bottom-left-radius: 5px;
+    //     border-bottom-right-radius: 5px;
+    //     border-top-left-radius: 5px;
+    //         border-top-right-radius: 5px;
+    // }
+ 
+}
